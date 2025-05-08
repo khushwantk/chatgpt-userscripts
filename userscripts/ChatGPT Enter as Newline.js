@@ -12,6 +12,24 @@
 (function () {
   "use strict";
 
+//   const newPlaceholder = "Ask anything (Press Ctrl+Enter to Send)";
+
+//     const observer = new MutationObserver(() => {
+//         const placeholderElement = document.querySelector('[data-placeholder="Ask anything"]');
+//         if (placeholderElement) {
+//             placeholderElement.setAttribute("data-placeholder", newPlaceholder);
+//             placeholderElement.textContent = newPlaceholder;
+//             placeholderElement.classList.add("placeholder");
+//             observer.disconnect(); // Stop observing once updated
+//         }
+//     });
+
+//     observer.observe(document.body, {
+//         childList: true,
+//         subtree: true
+//     });
+
+
   // Function to simulate Shift+Enter
   function simulateShiftEnter() {
     const promptEl = document.querySelector("#prompt-textarea");

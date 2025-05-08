@@ -71,8 +71,8 @@
     button.id = "exit-split-button";
     button.textContent = "Exit Split Screen";
     button.style.position = "fixed";
-    button.style.top = "20px";
-    button.style.left = "50%"; // Center horizontally
+    button.style.top = "13px";
+    button.style.left = "41%"; // Center horizontally
     button.style.transform = "translateX(-50%)"; // Adjust for button width
     button.style.zIndex = "10000";
     button.style.padding = "10px 15px";

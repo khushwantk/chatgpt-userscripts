@@ -89,6 +89,56 @@
       gap: "8px",
     });
 
+    // Info button
+    const infoBtn = document.createElement("button");
+    infoBtn.id = "chatgpt-message-nav-info";
+    infoBtn.innerHTML = "ℹ️";
+    // infoBtn.title = "Shows a list of your messages. Click to scroll to any message.";
+    Object.assign(infoBtn.style, {
+      background: "none",
+      border: "none",
+      color: "#ffffff",
+      cursor: "pointer",
+      fontSize: "16px",
+    });
+    // actionsContainer.appendChild(infoBtn);
+
+    // Tooltip
+    const tooltip = document.createElement("div");
+    // tooltip.textContent = "Shows a list of your messages.<br>Click to scroll to any message.";
+    tooltip.innerHTML = "Shows a list of your messages.<br>Click to scroll to any message.";
+
+    Object.assign(tooltip.style, {
+      position: "fixed",
+      // bottom: "125%",
+      // left: "50%",
+      transform: "translateX(-50%)",
+      backgroundColor: "#333",
+      color: "#fff",
+      padding: "6px 10px",
+      borderRadius: "4px",
+      fontSize: "12px",
+      whiteSpace: "nowrap",
+      zIndex: "10001",
+      display: "none",
+      pointerEvents: "none",
+      opacity: "0.95",
+    });
+    document.body.appendChild(tooltip);
+    infoBtn.addEventListener("mouseenter", () => {
+     // tooltip.style.display = "block";
+        const rect = infoBtn.getBoundingClientRect();
+  tooltip.style.left = `${rect.left + rect.width / 2}px`;
+  tooltip.style.top = `${rect.top - 50}px`; // 50px above the icon
+  tooltip.style.transform = "translateX(-50%)";
+  tooltip.style.display = "block";
+});
+
+    infoBtn.addEventListener("mouseleave", () => {
+      tooltip.style.display = "none";
+    });
+
+
     // Refresh button.
     const refreshBtn = document.createElement("button");
     refreshBtn.id = "chatgpt-message-nav-refresh";
@@ -121,10 +171,13 @@
       transition: "transform 0.3s",
       cursor: "pointer",
     });
+
     toggleBtn.onclick = (e) => {
       e.stopPropagation();
       updateMessageList();
       const content = document.getElementById("chatgpt-message-nav-content");
+      const infoBtn = document.getElementById("chatgpt-message-nav-info");
+
       if (!content) return;
 
       if (content.style.display === "none") {
@@ -133,12 +186,14 @@
         title.style.display = "block";
         instructionRow.style.display = "block"; // Show instruction row
         toggleBtn.style.transform = "rotate(-90deg)";
+        infoBtn.style.display = "none";
       } else {
         content.style.display = "none";
         container.style.width = "min-content";
         title.style.display = "none";
         instructionRow.style.display = "none"; // Hide instruction row
         toggleBtn.style.transform = "rotate(90deg)";
+        infoBtn.style.display = "inline";
       }
 
       localStorage.setItem(
@@ -148,6 +203,8 @@
     };
 
     // Append buttons to the actions container.
+    // actionsContainer.appendChild(infoBtn);
+    actionsContainer.insertBefore(infoBtn, actionsContainer.firstChild);
     actionsContainer.appendChild(refreshBtn);
     actionsContainer.appendChild(toggleBtn);
 
