@@ -2,19 +2,14 @@ CS798H - Userscripts for ChatGPT
 
 Grades:
 
-A1: 9.5/10
+A1: 9.5/10 | A2: 19/22
 
-A2: 19/22
-
-Milestone1 (Proposal): 50/50
-
-Milestone2 (Needfinding): 50/50
-
-Milestone3 (Prototype+Code): 25/30
-
-Milestone4 (Testing of Prototype) : 20/30
-
-Presentation & Viva : 20/20
+Project :
+- Milestone1 (Proposal): 50/50
+- Milestone2 (Needfinding): 50/50
+- Milestone3 (Prototype+Code): 25/30
+- Milestone4 (Testing of Prototype) : 20/30
+- Presentation & Viva : 20/20
 
 ---
 
